@@ -1,8 +1,8 @@
 #include "L298.h"
 
 nBlock_L298::nBlock_L298(PinName IN1, PinName IN2, PinName EN):
-	_out(IN1), _out(IN2), _pwm(EN) {
-	_pwm.period(1.0/5000.0);         	// 4Khz period
+	_in1(IN1), _in2(IN2), _enable(EN) {
+	_enable.period(1.0/5000.0);         	// 4Khz period
 
 	// Place the Motor in Stop
 	received_value = 0;
@@ -48,23 +48,26 @@ void nBlock_L298::endFrame(void){
 	}//if(must_update)
 }//endFrame
 
-void stop(void) {
-  	IN1 = OFF; 
-  	IN2 = OFF;
+void nBlock_L298::stop(void) {
+  	_in1 = OFF; 
+  	_in2 = OFF;
 }
   
-void turnLeft(void) {
-	IN1 = OFF;
-	IN2 = ON;      
+void nBlock_L298::turnLeft(void) {
+    _enable.write(0.95f);
+	_in1 = OFF;
+	_in2 = ON;      
 }
  
-void turnRight(void) {
-    IN1 = ON;
-    IN2 = OFF;   
+void nBlock_L298::turnRight(void) {
+    _enable.write(0.05f);
+    _in1 = ON;
+    _in2 = OFF;   
 }
 
-void brake(void) {
-    IN1 = ON;
-    IN2 = ON;   
+void nBlock_L298::brake(void) {
+    _enable.write(0.95f);
+    _in1 = ON;
+    _in2 = ON;   
 }
    

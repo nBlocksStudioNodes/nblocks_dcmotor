@@ -1,6 +1,9 @@
 #ifndef __NB_L298
 #define __NB_L298
 
+# define ON  1
+# define OFF 0
+
 #include "nworkbench.h"
 
 class nBlock_L298: public nBlockSimpleNode<1> {
@@ -18,8 +21,9 @@ private:
 	uint32_t received_value;
 	uint32_t must_update;
 
-	DigitalOut _out;
-	PwmOut _pwm;
+	DigitalOut _in1;
+    DigitalOut _in2;
+	PwmOut _enable;
 };
 
 #endif
