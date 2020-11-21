@@ -1,0 +1,51 @@
+{
+    "category": "Motor",
+    "name": "L298",
+    "inputs": 1,
+    "outputs": 3,
+    "parameters": [
+        {
+            "name": "IN1",
+            "type": "raw",
+            "default": "p19",
+            "options": [
+                ""
+            ],
+            "value": "p19"
+        },
+        {
+            "name": "IN2",
+            "type": "raw",
+            "default": "p20",
+            "options": [
+                ""
+            ],
+            "value": "p20"
+        },
+        {
+            "name": "EN",
+            "type": "raw",
+            "default": "p21",
+            "options": [
+                ""
+            ],
+            "value": "p21"
+        }
+    ],
+    "labels": {
+        "input": [],
+        "output": []
+    },
+    "schematic_pins": {
+        "inputs": [
+            1
+        ],
+        "outputs": [
+            2,
+            3,
+            4
+        ]
+    },
+    "repository": "https://github.com/nBlocksStudioNodes/nblocks_l298",
+    "revision": ""
+}
