@@ -2,7 +2,7 @@
     "category": "Motor",
     "name": "L298",
     "inputs": 1,
-    "outputs": 3,
+    "outputs": 0,
     "parameters": [
         {
             "name": "IN1",
@@ -41,9 +41,7 @@
             1
         ],
         "outputs": [
-            2,
-            3,
-            4
+            0
         ]
     },
     "repository": "https://github.com/nBlocksStudioNodes/nblocks_l298",
