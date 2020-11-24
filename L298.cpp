@@ -60,7 +60,7 @@ void nBlock_L298::turnLeft(void) {
 }
  
 void nBlock_L298::turnRight(void) {
-    _enable.write(0.05f);
+    _enable.write(0.95f);
     _in1 = ON;
     _in2 = OFF;   
 }
