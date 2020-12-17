@@ -20,6 +20,7 @@ private:
 	// Temporary values to store data received from input
 	uint32_t received_value;
 	uint32_t must_update;
+	uint32_t state = 0;
 
 	DigitalOut _in1;
     DigitalOut _in2;

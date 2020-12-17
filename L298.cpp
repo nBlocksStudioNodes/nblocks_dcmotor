@@ -27,23 +27,47 @@ void nBlock_L298::endFrame(void){
 		char buf[1];
 		buf[0] = received_value;
 
-		switch (buf[0])
-		{
-		case 0:
-			stop();
-			break;
-		case 1:
-			turnRight();
-			break;
-		case 2:
-			turnLeft();
-			break;
-		case 3:
-			brake();
-			break;
-		default:
-			stop();
-			break;
+		switch (buf[0]) {
+			case 0:					// stop uncoditionally
+				state = 0;
+				stop();
+				break;
+			case 0x30:				// stop uncoditionally
+				state = 0;
+				stop();
+				break;				
+			case 1:
+				if (state == 0){	//move right only if is in stop
+					state = 1;
+					turnRight();
+					}
+				break;
+			case 0x31:
+				if (state == 0){	//move right only if is in stop
+					state = 1;
+					turnRight();
+					}
+				break;				
+			case 2:
+				if (state == 1){	//turn left only if moving right
+					state = 2;
+					turnLeft();
+					}
+				break;
+			case 0x32:
+				if (state == 1){	//turn left only if moving right
+					state = 2;
+					turnLeft();
+					}
+				break;				
+			case 3:					// brake unconditionally
+				brake();
+				break;
+			case 0x33:				// brake unconditionally
+				brake();
+				break;				
+			default:				// any other input ignore
+				break;
 		}//switch
 	}//if(must_update)
 }//endFrame
