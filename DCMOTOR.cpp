@@ -1,6 +1,6 @@
-#include "L298.h"
+#include "DCMOTOR.h"
 
-nBlock_L298::nBlock_L298(PinName IN1, PinName IN2, PinName EN):
+nBlock_DCMOTOR::nBlock_DCMOTOR(PinName IN1, PinName IN2, PinName EN):
 	_in1(IN1), _in2(IN2), _enable(EN) {
 	_enable.period(1.0/5000.0);         	// 4Khz period
 
@@ -9,7 +9,7 @@ nBlock_L298::nBlock_L298(PinName IN1, PinName IN2, PinName EN):
 	must_update = 1;	
 }
 
-void nBlock_L298::triggerInput(nBlocks_Message message){
+void nBlock_DCMOTOR::triggerInput(nBlocks_Message message){
 	// input 0 receives a value in range 0-255
 	if (message.inputNumber == 0) {
 		// Store value
@@ -19,7 +19,7 @@ void nBlock_L298::triggerInput(nBlocks_Message message){
 	}
 }
 
-void nBlock_L298::endFrame(void){
+void nBlock_DCMOTOR::endFrame(void){
 	if (must_update) {
 		must_update = 0;
 		
@@ -72,24 +72,24 @@ void nBlock_L298::endFrame(void){
 	}//if(must_update)
 }//endFrame
 
-void nBlock_L298::stop(void) {
+void nBlock_DCMOTOR::stop(void) {
   	_in1 = OFF; 
   	_in2 = OFF;
 }
   
-void nBlock_L298::turnLeft(void) {
+void nBlock_DCMOTOR::turnLeft(void) {
     _enable.write(0.95f);
 	_in1 = OFF;
 	_in2 = ON;      
 }
  
-void nBlock_L298::turnRight(void) {
+void nBlock_DCMOTOR::turnRight(void) {
     _enable.write(0.95f);
     _in1 = ON;
     _in2 = OFF;   
 }
 
-void nBlock_L298::brake(void) {
+void nBlock_DCMOTOR::brake(void) {
     _enable.write(0.95f);
     _in1 = ON;
     _in2 = ON;   

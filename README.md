@@ -1,10 +1,10 @@
-# L298
+# DCMOTOR
 
-n-BlocksStudio node to drive a DC motor with a L298 H-Bridge
+n-BlocksStudio node to drive a DC motor with an H-Bridge
  
   *  Category: Motor
   *  HAL: mbed
-  *  Tested: LPC1768
+  *  Tested: LPC1768, L298
   *  Author: N. Chalikias
 
 ## Inputs
@@ -15,11 +15,14 @@ n-BlocksStudio node to drive a DC motor with a L298 H-Bridge
     *  3 or 0x33 BRAKE IN1=1, IN2=1
 
 ## Parameters
- *  PinName: L298 IN1: GPO pin
- *  PinName: L298 IN2: GPO pin
- *  PinPwm: L298 Enable PWM pin
+ *  PinName:  Bridge IN1: GPO pin
+ *  PinName:  Bridge IN2: GPO pin
+ *  PinPwm:   Bridge Enable PWM pin
 
 
-## Example:
+## Examples:
 
-[GPIN]-->[ValueTrig]-->[L298]
+[GPIN]-->[ValueTrig]-->[DCMOTOR]
+
+[Ticker]-->[Counter]-->[DCMOTOR]
+

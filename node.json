@@ -1,6 +1,6 @@
 {
     "category": "Motor",
-    "name": "L298",
+    "name": "DCMOTOR",
     "inputs": 1,
     "outputs": 0,
     "parameters": [
@@ -44,6 +44,6 @@
             0
         ]
     },
-    "repository": "https://github.com/nBlocksStudioNodes/nblocks_l298",
+    "repository": "https://github.com/nBlocksStudioNodes/nblocks_DCMOTOR",
     "revision": ""
 }
